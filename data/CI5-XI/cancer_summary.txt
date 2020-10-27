@@ -1,0 +1,64 @@
+CANCER	ICD-10	LABEL
+1	C00             	Lip                                                                             
+2	C01-02          	Tongue                                                                          
+3	C03-06          	Mouth                                                                           
+4	C07-08          	Salivary glands                                                                 
+5	C09             	Tonsil                                                                          
+6	C10             	Other oropharynx                                                                
+7	C11             	Nasopharynx                                                                     
+8	C12-13          	Hypopharynx                                                                     
+9	C14             	Pharynx unspecified                                                             
+10	C15             	Oesophagus                                                                      
+11	C16             	Stomach                                                                         
+12	C17             	Small intestine                                                                 
+13	C18             	Colon                                                                           
+14	C19-20          	Rectum                                                                          
+15	C21             	Anus                                                                            
+16	C22             	Liver                                                                           
+17	C23-24          	Gallbladder etc.                                                                
+18	C25             	Pancreas                                                                        
+19	C30-31          	Nose, sinuses etc.                                                              
+20	C32             	Larynx                                                                          
+21	C33-34          	Lung (incl. trachea and bronchus)                                               
+22	C37-38          	Other thoracic organs                                                           
+23	C40-41          	Bone                                                                            
+24	C43             	Melanoma of skin                                                                
+25	C44             	Other skin                                                                      
+26	C45             	Mesothelioma                                                                    
+27	C46             	Kaposi sarcoma                                                                  
+28	C47+C49         	Connective and soft tissue                                                      
+29	C50             	Breast                                                                          
+30	C51             	Vulva                                                                           
+31	C52             	Vagina                                                                          
+32	C53             	Cervix uteri                                                                    
+33	C54             	Corpus uteri                                                                    
+34	C55             	Uterus unspecified                                                              
+35	C56             	Ovary                                                                           
+36	C57             	Other female genital organs                                                     
+37	C58             	Placenta                                                                        
+38	C60             	Penis                                                                           
+39	C61             	Prostate                                                                        
+40	C62             	Testis                                                                          
+41	C63             	Other male genital organs                                                       
+42	C64             	Kidney                                                                          
+43	C65             	Renal pelvis                                                                    
+44	C66             	Ureter                                                                          
+45	C67             	Bladder                                                                         
+46	C68             	Other urinary organs                                                            
+47	C69             	Eye                                                                             
+48	C70-72          	Brain, nervous system                                                           
+49	C73             	Thyroid                                                                         
+50	C74             	Adrenal gland                                                                   
+51	C75             	Other endocrine                                                                 
+52	C81             	Hodgkin disease                                                                 
+53	C82-86,C96      	Non-Hodgkin lymphoma                                                            
+54	C88             	Immunoproliferative diseases                                                    
+55	C90             	Multiple myeloma                                                                
+56	C91             	Lymphoid leukaemia                                                              
+57	C92-94          	Myeloid leukaemia                                                               
+58	C95             	Leukaemia unspecified                                                           
+59	MPD             	Myeloproliferative disorders                                                    
+60	MDS             	Myelodysplastic syndromes                                                       
+61	O&U             	Other and unspecified                                                           
+62	ALL             	All sites                                                                       
+63	ALLbC44         	All sites but skin                                                              
