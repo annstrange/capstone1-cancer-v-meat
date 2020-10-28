@@ -28,13 +28,6 @@ def reload_df_utf8(filename):
     df = pd.read_csv(filename, encoding='utf-8')
     return df    
 
-def join_cancer_data():
-    # returns reduced dataframe for registries we want, summed and merged with population data
-    # Note: I can decide to accept df's as args (functional) or use pseudo-oop here w df's part of the state
-    
-
-    #return df_joined
-    pass 
 
 if __name__ == '__main__':
     '''
@@ -51,22 +44,43 @@ if __name__ == '__main__':
 
     if args['mode'] == 'single': ...
     '''
-
+    # Cancer and population data from WHO
     df_cases = read_cancer_data('../data/CI5-XI/cases.csv')
     df_pop = read_population_data('../data/CI5-XI/pop.csv')
+
+    # Lookup tables
     df_registry = read_cancer_registry('../data/CI5-XI/registry.txt')
+    df_all_countries = pd.read_csv('../data/country_iso.csv')
+
+    # Meat and animal product consumption data from FAO via ___
+    df_meat = pd.read_csv('../data/FAO/per-capita-meat-consumption-by-type-kilograms-per-year.csv')
+    df_milk = pd.read_csv('../data/FAO/per-capita-milk-consumption.csv')
+    df_egg = pd.read_csv('../data/FAO/per-capita-egg-consumption-kilograms-per-year.csv')
 
     print('Number of rows in cases: {}'.format(len(df_cases)))
     print('Number of rows in pop: {}'.format(len(df_pop)))
     print('Number of rows in registry: {}'.format(len(df_registry)))
 
-    dump_df('../data/cases_tmp.csv', df_cases)
-    dump_df('../data/pop_tmp.csv', df_pop)
-    dump_df('../data/clean_registry.csv', df_registry)
+    print('Number of rows in raw meat, milk, egg data (mult year): {}, {}, {}'.format(len(df_meat), len(df_milk), len(df_egg)))
+    print('Number of rows in country iso : {}'.format(len(df_all_countries)))
+
+    # Munging the registry data
+    df_registry2 = munge_registry(df_registry)
+    dump_df('../data/clean_registry.csv', df_registry2)
     df_reg = reload_df_utf8('../data/clean_registry.csv')
-
-
     print('Reloaded reg UTF-8 Number of rows in registry: {}'.format(len(df_reg)))
+
+    #df_cancer_data = turn_cancer_to_per_capita(df_cases, df_pop)
+    #df_cancer_by_iso = get_cancer_isos(df_cancer_data, df_all_countries)
+
+    # Munging the Animal product data => one single data set to work with, animal consumption 
+    df_animal_cons = munge_meats(df_meat, df_milk, df_egg, 2008)
+    df_animal_by_iso = get_animal_isos(df_animal_cons, df_all_countries)
+
+
+    # reduce to countries in common
+    #df_cancer_v_meat = join_dfs(df_animal_cons, df_<cancerdata>, df_all_countries) 
+
 
     '''
     Todo: implement plotting
