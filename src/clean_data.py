@@ -159,7 +159,7 @@ def munge_meats(df_meat, df_milk, df_egg, year=2008):
     df_animal3 = df_animal2.loc[:,('country_name', 'country_code', 'year', 'animal_product_kg_cap_yr')]
     return df_animal3
 
-def turn_cancer_to_per_capita(df_cases, df_pop):
+def turn_cancer_to_per_capita(df_cases, df_pop, df_reg):
     # returns reduced dataframe for registries we want, summed and merged with population data
     # Note: I can decide to accept df's as args (functional) or use pseudo-oop here w df's part of the state
     
@@ -191,9 +191,8 @@ def cancer_pc_by_country (df_cancer, df_all_countries):
 
 def get_cancer_isos(df_cancer, df_iso):
 
-    #df_results = 
-
-    #return df_results
+    df_results = df_cancer.merge(df_iso, left_on="country_name", right_on = "Name", suffixes = ('', '_iso'))
+    return df_results
     pass
 
 def get_animal_isos(df_animal, df_iso):
