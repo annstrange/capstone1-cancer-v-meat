@@ -1,7 +1,7 @@
 import argparse
 from clean_data import *
 from plots import *
-
+from hypothesis import *
 
 def read_cancer_data(filename):
     # Returns data frame with cancer data
@@ -127,25 +127,10 @@ if __name__ == '__main__':
 
     # Correlation Plots
     plotting(df_combo)
-    
 
-    '''
-    Todo: implement plotting
+    # Hypothesis Test
+    p_value = gen_stats(df_combo)
 
-    fname = 'm1_plot.png'
-    ax = plot_computation_time(n_lst, comp_times_m1, title='method 1, double for',
-                               label='m1: double for', color='blue', fname=fname,
-                               keepopen=args['fit'])
-    if args['fit'] == 'True':
-        plot_fit(x, y_m1, p_m1, fname, ax)
 
-    fname = 'm2_plot.png'
-    ax = plot_computation_time(n_lst, comp_times_m2, title='method 2, use dictionary',
-                               label='m2: use dict', color='green', fname=fname,
-                               keepopen=args['fit'])
-    if args['fit'] == 'True':
-        plot_fit(x, y_m2, p_m2, fname, ax)
-
-    '''
     print('\nComplete')
 

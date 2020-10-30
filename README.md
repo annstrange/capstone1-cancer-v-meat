@@ -107,3 +107,6 @@ Observations: The population sizes are so large and the variances so small, our 
 ## Conclusions
 Based on this analysis, our p-value is far below alpha, I therefore reject the Null Hypothesis and conclude I cannot disagree with the claims made in "Forks Over Knives" that animal consumption has a correlation with cancer incidence.  Due to the many assumptions required for this type of statistical analysis to be accurate, many of which do not hold true, this should not be considered conclusive evidence, but perhaps may prompt additional study.
 
+## To run the Pipeline
+from src/ 
+`python forks_over_knives.py`
