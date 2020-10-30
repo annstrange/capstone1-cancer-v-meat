@@ -72,6 +72,6 @@ def gen_stats(df_combo):
     difference_in_proportions = stats.norm(mean_s, np.sqrt(var_s))
 
     p_value = 1 - difference_in_proportions.cdf(difference_in_sample_proportions)
-    print("p-value for two sample frequency comparison: {:2.320f}".format(p_value))
+    print("p-value for two sample frequency comparison: {:2.32f}".format(p_value))
 
     return p_value

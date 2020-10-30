@@ -1,0 +1,248 @@
+Name,Alpha2,Alpha3,UNCode,GraphTest
+Andorra,AD,AND,20,1000
+United Arab Emirates,AE,ARE,784,1100
+Afghanistan,AF,AFG,4,1200
+Antigua and Barbuda,AG,ATG,28,1300
+Anguilla,AI,AIA,660,1400
+Albania,AL,ALB,8,1500
+Armenia,AM,ARM,51,1600
+Netherlands Antilles,AN,ANT,530,1700
+Angola,AO,AGO,24,1800
+Antarctica,AQ,ATA,10,1900
+Argentina,AR,ARG,32,2000
+American Samoa,AS,ASM,16,2100
+Austria,AT,AUT,40,2200
+Australia,AU,AUS,36,2300
+Aruba,AW,ABW,533,2400
+Aland Islands,AX,ALA,248,2500
+Azerbaijan,AZ,AZE,31,2600
+Bosnia and Herzegovina,BA,BIH,70,2700
+Barbados,BB,BRB,52,2800
+Bangladesh,BD,BGD,50,2900
+Belgium,BE,BEL,56,3000
+Burkina Faso,BF,BFA,854,3100
+Bulgaria,BG,BGR,100,3200
+Bahrain,BH,BHR,48,3300
+Burundi,BI,BDI,108,3400
+Benin,BJ,BEN,204,3500
+Saint-Barthélemy,BL,BLM,652,3600
+Bermuda,BM,BMU,60,3700
+Brunei Darussalam,BN,BRN,96,3800
+Bolivia,BO,BOL,68,3900
+Brazil,BR,BRA,76,4000
+Bahamas,BS,BHS,44,4100
+Bhutan,BT,BTN,64,4200
+Bouvet Island,BV,BVT,74,4300
+Botswana,BW,BWA,72,4400
+Belarus,BY,BLR,112,4500
+Belize,BZ,BLZ,84,4600
+Canada,CA,CAN,124,4700
+Cocos (Keeling) Islands,CC,CCK,166,4800
+"Congo, (Kinshasa)",CD,COD,180,4900
+Central African Republic,CF,CAF,140,5000
+Congo (Brazzaville),CG,COG,178,5100
+Switzerland,CH,CHE,756,5200
+Côte d'Ivoire,CI,CIV,384,5300
+Cook Islands,CK,COK,184,5400
+Chile,CL,CHL,152,5500
+Cameroon,CM,CMR,120,5600
+China,CN,CHN,156,5700
+Colombia,CO,COL,170,5800
+Costa Rica,CR,CRI,188,5900
+Cuba,CU,CUB,192,6000
+Cape Verde,CV,CPV,132,6100
+Christmas Island,CX,CXR,162,6200
+Cyprus,CY,CYP,196,6300
+Czech Republic,CZ,CZE,203,6400
+Germany,DE,DEU,276,6500
+Djibouti,DJ,DJI,262,6600
+Denmark,DK,DNK,208,6700
+Dominica,DM,DMA,212,6800
+Dominican Republic,DO,DOM,214,6900
+Algeria,DZ,DZA,12,7000
+Ecuador,EC,ECU,218,7100
+Estonia,EE,EST,233,7200
+Egypt,EG,EGY,818,7300
+Western Sahara,EH,ESH,732,7400
+Eritrea,ER,ERI,232,7500
+Spain,ES,ESP,724,7600
+Ethiopia,ET,ETH,231,7700
+Finland,FI,FIN,246,7800
+Fiji,FJ,FJI,242,7900
+Falkland Islands (Malvinas),FK,FLK,238,8000
+"Micronesia, Federated States of",FM,FSM,583,8100
+Faroe Islands,FO,FRO,234,8200
+France,FR,FRA,250,8300
+Gabon,GA,GAB,266,8400
+United Kingdom,GB,GBR,826,8500
+Grenada,GD,GRD,308,8600
+Georgia,GE,GEO,268,8700
+French Guiana,GF,GUF,254,8800
+Guernsey,GG,GGY,831,8900
+Ghana,GH,GHA,288,9000
+Gibraltar,GI,GIB,292,9100
+Greenland,GL,GRL,304,9200
+Gambia,GM,GMB,270,9300
+Guinea,GN,GIN,324,9400
+Guadeloupe,GP,GLP,312,9500
+Equatorial Guinea,GQ,GNQ,226,9600
+Greece,GR,GRC,300,9700
+South Georgia and the South Sandwich Islands,GS,SGS,239,9800
+Guatemala,GT,GTM,320,9900
+Guam,GU,GUM,316,10000
+Guinea-Bissau,GW,GNB,624,10100
+Guyana,GY,GUY,328,10200
+"Hong Kong, SAR China",HK,HKG,344,10300
+Heard and Mcdonald Islands,HM,HMD,334,10400
+Honduras,HN,HND,340,10500
+Croatia,HR,HRV,191,10600
+Haiti,HT,HTI,332,10700
+Hungary,HU,HUN,348,10800
+Indonesia,ID,IDN,360,10900
+Ireland,IE,IRL,372,11000
+Israel,IL,ISR,376,11100
+Isle of Man,IM,IMN,833,11200
+India,IN,IND,356,11300
+British Indian Ocean Territory,IO,IOT,86,11400
+Iraq,IQ,IRQ,368,11500
+"Iran, Islamic Republic of",IR,IRN,364,11600
+Iceland,IS,ISL,352,11700
+Italy,IT,ITA,380,11800
+Jersey,JE,JEY,832,11900
+Jamaica,JM,JAM,388,12000
+Jordan,JO,JOR,400,12100
+Japan,JP,JPN,392,12200
+Kenya,KE,KEN,404,12300
+Kyrgyzstan,KG,KGZ,417,12400
+Cambodia,KH,KHM,116,12500
+Kiribati,KI,KIR,296,12600
+Comoros,KM,COM,174,12700
+Saint Kitts and Nevis,KN,KNA,659,12800
+Korea (North),KP,PRK,408,12900
+Korea (South),KR,KOR,410,13000
+Kuwait,KW,KWT,414,13100
+Cayman Islands,KY,CYM,136,13200
+Kazakhstan,KZ,KAZ,398,13300
+Lao PDR,LA,LAO,418,13400
+Lebanon,LB,LBN,422,13500
+Saint Lucia,LC,LCA,662,13600
+Liechtenstein,LI,LIE,438,13700
+Sri Lanka,LK,LKA,144,13800
+Liberia,LR,LBR,430,13900
+Lesotho,LS,LSO,426,14000
+Lithuania,LT,LTU,440,14100
+Luxembourg,LU,LUX,442,14200
+Latvia,LV,LVA,428,14300
+Libya,LY,LBY,434,14400
+Morocco,MA,MAR,504,14500
+Monaco,MC,MCO,492,14600
+Moldova,MD,MDA,498,14700
+Montenegro,ME,MNE,499,14800
+Saint-Martin (French part),MF,MAF,663,14900
+Madagascar,MG,MDG,450,15000
+Marshall Islands,MH,MHL,584,15100
+"Macedonia, Republic of",MK,MKD,807,15200
+Mali,ML,MLI,466,15300
+Myanmar,MM,MMR,104,15400
+Mongolia,MN,MNG,496,15500
+"Macao, SAR China",MO,MAC,446,15600
+Northern Mariana Islands,MP,MNP,580,15700
+Martinique,MQ,MTQ,474,15800
+Mauritania,MR,MRT,478,15900
+Montserrat,MS,MSR,500,16000
+Malta,MT,MLT,470,16100
+Mauritius,MU,MUS,480,16200
+Maldives,MV,MDV,462,16300
+Malawi,MW,MWI,454,16400
+Mexico,MX,MEX,484,16500
+Malaysia,MY,MYS,458,16600
+Mozambique,MZ,MOZ,508,16700
+Namibia,NA,NAM,516,16800
+New Caledonia,NC,NCL,540,16900
+Niger,NE,NER,562,17000
+Norfolk Island,NF,NFK,574,17100
+Nigeria,NG,NGA,566,17200
+Nicaragua,NI,NIC,558,17300
+Netherlands,NL,NLD,528,17400
+Norway,NO,NOR,578,17500
+Nepal,NP,NPL,524,17600
+Nauru,NR,NRU,520,17700
+Niue,NU,NIU,570,17800
+New Zealand,NZ,NZL,554,17900
+Oman,OM,OMN,512,18000
+Panama,PA,PAN,591,18100
+Peru,PE,PER,604,18200
+French Polynesia,PF,PYF,258,18300
+Papua New Guinea,PG,PNG,598,18400
+Philippines,PH,PHL,608,18500
+Pakistan,PK,PAK,586,18600
+Poland,PL,POL,616,18700
+Saint Pierre and Miquelon,PM,SPM,666,18800
+Pitcairn,PN,PCN,612,18900
+Puerto Rico,PR,PRI,630,19000
+Palestinian Territory,PS,PSE,275,19100
+Portugal,PT,PRT,620,19200
+Palau,PW,PLW,585,19300
+Paraguay,PY,PRY,600,19400
+Qatar,QA,QAT,634,19500
+Réunion,RE,REU,638,19600
+Romania,RO,ROU,642,19700
+Serbia,RS,SRB,688,19800
+Russian Federation,RU,RUS,643,19900
+Rwanda,RW,RWA,646,20000
+Saudi Arabia,SA,SAU,682,20100
+Solomon Islands,SB,SLB,90,20200
+Seychelles,SC,SYC,690,20300
+Sudan,SD,SDN,736,20400
+Sweden,SE,SWE,752,20500
+Singapore,SG,SGP,702,20600
+Saint Helena,SH,SHN,654,20700
+Slovenia,SI,SVN,705,20800
+Svalbard and Jan Mayen Islands,SJ,SJM,744,20900
+Slovakia,SK,SVK,703,21000
+Sierra Leone,SL,SLE,694,21100
+San Marino,SM,SMR,674,21200
+Senegal,SN,SEN,686,21300
+Somalia,SO,SOM,706,21400
+Suriname,SR,SUR,740,21500
+South Sudan,SS,SSD,728,21600
+Sao Tome and Principe,ST,STP,678,21700
+El Salvador,SV,SLV,222,21800
+Syrian Arab Republic (Syria),SY,SYR,760,21900
+Swaziland,SZ,SWZ,748,22000
+Turks and Caicos Islands,TC,TCA,796,22100
+Chad,TD,TCD,148,22200
+French Southern Territories,TF,ATF,260,22300
+Togo,TG,TGO,768,22400
+Thailand,TH,THA,764,22500
+Tajikistan,TJ,TJK,762,22600
+Tokelau,TK,TKL,772,22700
+Timor-Leste,TL,TLS,626,22800
+Turkmenistan,TM,TKM,795,22900
+Tunisia,TN,TUN,788,23000
+Tonga,TO,TON,776,23100
+Turkey,TR,TUR,792,23200
+Trinidad and Tobago,TT,TTO,780,23300
+Tuvalu,TV,TUV,798,23400
+"Taiwan, Republic of China",TW,TWN,158,23500
+"Tanzania, United Republic of",TZ,TZA,834,23600
+Ukraine,UA,UKR,804,23700
+Uganda,UG,UGA,800,23800
+US Minor Outlying Islands,UM,UMI,581,23900
+United States of America,US,USA,840,24000
+Uruguay,UY,URY,858,24100
+Uzbekistan,UZ,UZB,860,24200
+Holy See (Vatican City State),VA,VAT,336,24300
+Saint Vincent and Grenadines,VC,VCT,670,24400
+Venezuela (Bolivarian Republic),VE,VEN,862,24500
+British Virgin Islands,VG,VGB,92,24600
+"Virgin Islands, US",VI,VIR,850,24700
+Viet Nam,VN,VNM,704,24800
+Vanuatu,VU,VUT,548,24900
+Wallis and Futuna Islands,WF,WLF,876,25000
+Samoa,WS,WSM,882,25100
+Yemen,YE,YEM,887,25200
+Mayotte,YT,MYT,175,25300
+South Africa,ZA,ZAF,710,25400
+Zambia,ZM,ZMB,894,25500
+Zimbabwe,ZW,ZWE,716,25600
