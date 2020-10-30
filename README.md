@@ -36,13 +36,14 @@ The Our World in Data site provides a chart and downloadable .csv of meat/dairy/
 
     Sample data
 
-    <base bar? chart, top and bottom 5>
+    ![](images/CancerData.png)
+
+    ![](images/CancerDataAfterMunging.png)
 
     ![](images/cancer_percapita.png)
 
 ### Animal Consumption Per Capita
 
-    <base chart top and bottom 5>
 
 ![Animal Consumption](../images/animal_consumption2.png)
 images/animal_consumption.html
@@ -53,7 +54,15 @@ images/animal_consumption.html
 
 ## Let's look at the Correlation
 
-77% correlation
+    df_combo[['country_name','Incidence Per Age Capita', 'animal_product_kg_cap_yr']].corr(method='pearson')
+
+    ![](images/correlation.png)
+
+    ![](images/Least_corr.png)
+
+    ![](images/Most_corr.png)
+
+76% correlation
 
     map most correlated and least.
 
