@@ -34,46 +34,34 @@ The Our World in Data site provides a chart and downloadable .csv of meat/dairy/
 
 ### Cancer by Country
 
-    Sample data
+Sample data
 
-    ![](images/CancerData.png)
+![](images/CancerData.png)
 
-    ![](images/CancerDataAfterMunging.png)
+After Munging
 
-    ![](images/cancer_percapita.png)
+![](images/CancerDataAfterMunging.png)
+
+Cancer Incidence Age 20-49 (2008-2012) for Our 60 Comparison Countries, Ranked by Probability
+
+![](images/cancer_percapita.png)
 
 ### Animal Consumption Per Capita
 
 
-![Animal Consumption](../images/animal_consumption2.png)
-images/animal_consumption.html
+Our 60 Countries Ranked by Animal Consumption Per Capita, 2008 (Meat, Egg, Milk)
 
-![](images/animal_consumption.html)
-
+![](images/animal_consumption2.png)
 
 
-## Let's look at the Correlation
+
+## Does It Look Like There's Correlation?
 
     df_combo[['country_name','Incidence Per Age Capita', 'animal_product_kg_cap_yr']].corr(method='pearson')
 
-    ![](images/correlation.png)
-
-    ![](images/Least_corr.png)
-
-    ![](images/Most_corr.png)
-
-76% correlation
-
-    map most correlated and least.
-
-    stats
-
-## Chi-Squared Test for Independence
+![](images/correlation.png)
 
 
-H0: In the population, the two categorical variables are independent.
-
-Ha: In the population, the two categorical variables are dependent.
 
 ## Hypothesis Testings
 
@@ -88,13 +76,37 @@ The probability of getting cancer worldwide (among our 60 sample countries) is 1
     P(cancer w meat) we'll call p_M = (0.14%)
     P(cancer as a vegan) we'll call p_V = (0.07%)
 
-A Normal approximation is appropriate to each of these Binomial distributions, but we'll use frequency in the test so we can account for the population differences.  Our probablistic model for the difference in sample frequencies can be represented as 
 
-\\{Difference in sample frequencies between Matt and Nick} \approx Normal \left( p_M - p_N, \sqrt{\frac{p_N(1-p_N)}{100} + \frac{p_M(1-p_M)}{80}} \right)\\
+#### Create a Probablistic Model of the Stiuation Assuming the Null Hypothesis is True Using Frequencies and Two Samples
+
+Assuming that each cancer incidence is independent of all the rest (not actually true), the number of cancer incidents per year for age 20-49 are Binomially distributed. 
+
+Our sample populations are:
+Population in animal eating countries age 20-49: approx 324 million 
+Population in vegan countries age 20-49: approx 77 million
+
+We'll use frequency in the test so we can account for the population differences.  Our hypothesis test and probablistic model for the difference in sample frequencies can be represented as 
+
+
+![](images/HypothesisTestLaTex.png)
+
+
+**Results** 
+The p-value from this calculation is effectively zero. (is this likely?)
+
+|  |  |
+|----------|:-------------|  
+|**mean (cancer probability worldwide)**| 0.1320 % |
+|**mean (animal consumers)**| 0.1446 % |
+|**mean (non animal consumers)**|  0.0790 % |
+
+
+** Means are also calculated as Weighted Averages, by the sample population sizes.
+
+Observations: The population sizes are so large and the variances so small, our standard deviation and standard error are therefore extremely narrow.  However, even looking at the data as if the population instances were each country (n = 50 and 10), the distributions are extremely narrow, with effectively zero overlap in the PMF curves. 
 
 
 
+## Conclusions
+* Based on these initial calculations, our p-value is far below alpha, I therefore reject the Null Hypothesis and conclude there may be some support for the "Forks Over Knives" claim that animal consumption has some correlation with cancer.  I cannot debunk their claim wiht this analysis.  Due to the many assumptions required for this type of statistical analysis, many of which do not hold true, this should not be considered conclusive evidence, but perhaps may prompt additional investigation.
 
-
-## Interesting Findings
-* Using the normal distribution to test 
