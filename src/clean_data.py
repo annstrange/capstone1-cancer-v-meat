@@ -20,6 +20,45 @@ def clean_country_region (country_col):
     #print(str2)
     return str2
 
+def remove_subset_codes(df_cases):
+    df_subset = df_cases[df_cases['CANCER'] == 62]   # code for ALL cancer types.
+
+    return df_subset
+
+def annualize_pop_data(df_pop):
+    # We have 5 years data for each country, divide each stat by 5
+
+    # for each column (this can be written much more elegantly)
+    df_pop['Total_Pop'] = df_pop['Total_Pop'] / 5
+    df_pop['P20_24'] = df_pop['P20_24'] / 5
+    df_pop['P25_29'] = df_pop['P25_29'] / 5
+    df_pop['P30_34'] = df_pop['P30_34'] / 5
+    df_pop['P35_39'] = df_pop['P35_39'] / 5
+    df_pop['P40_44'] = df_pop['P40_44'] / 5
+    df_pop['P45_49'] = df_pop['P45_49'] / 5
+    # The rest get deleted anyway
+
+    return df_pop
+
+def annualize_case_data(df_cases):
+    # We have 5 years data for each country, divide each stat by 5
+
+    # for each column (this can be written much more elegantly)
+    df_cases['TOTAL'] = df_cases['TOTAL'] / 5
+    df_cases['N20_24'] = df_cases['N20_24'] / 5
+    df_cases['N25_29'] = df_cases['N25_29'] / 5
+    df_cases['N30_34'] = df_cases['N30_34'] / 5
+    df_cases['N35_39'] = df_cases['N35_39'] / 5
+    df_cases['N40_44'] = df_cases['N40_44'] / 5
+    df_cases['N45_49'] = df_cases['N45_49'] / 5
+    # The rest get deleted anyway
+
+    return df_cases
+
+def add_total_pop(df_pop):
+    df_pop['Total_Pop'] = df_pop['P0_4'] + df_pop['P5_9'] + df_pop['P10_14'] + df_pop['P15_19'] + df_pop['P20_24'] + df_pop['P25_29'] + df_pop['P30_34'] + df_pop['P35_39'] + df_pop['P40_44'] + df_pop['P45_49'] + df_pop['P50_54'] + df_pop['P55_59'] + df_pop['P60_64'] + df_pop['P65_69'] + df_pop['P70_74'] +  df_pop['P75_79'] +  df_pop['P80_84'] +  df_pop['P85'] +  df_pop['P_unk']  
+    return df_pop
+
 def std_country_region (country_region_col):
     '''
     country_col is a string value, standardize format
@@ -103,23 +142,15 @@ def munge_registry(df_registry):
     # Some countries have cancer data at the national level and a sub-region by registry.  Others have regions that need to be summed.
     # Detect national registry by format of country name not containing ;:, then exclude all non national subsets for that country
     df_reg_group2 =  df_registry.groupby('country_name')['is_national'].sum().reset_index()
-    #print('columns are {}'.format(df_registry.columns))
-
-    # Zombie column wants to be here from last run, what the heck. 
-    cols = ['is_national_exists', 'is_subset']
-    for col in cols:
-        if col in df_registry.columns:
-            df_registry = df_registry.drop(columns=col, axis=1)
-    df_registry.reset_index()        
+    #print('columns are {}'.format(df_registry.columns))    
 
     df_registry2 = df_registry.merge(df_reg_group2, left_on=['country_name'], right_on=['country_name'], suffixes=['', '_exists'])
     #print('columns are {}'.format(df_registry2.columns))
     # Trouble here, we seem to have to cols w/ same name, WTF, doesn't happen in Lab
     df_registry2['is_subset'] = list(map (set_is_subset, df_registry2['is_national_exists'], df_registry2['is_national']) )
 
-    # use mask to eliminate redundant registries.  count goes from 464 to 273. 
+    # use mask to eliminate redundant registries.  count should go from 464 to 273. 
     df_reduced = df_registry2[(df_registry2['is_national'] == 1 ) | (df_registry2['is_subset'] == 1)] 
-    #df_reduced = df_registry2[(df_registry2['is_national'] == 1 ) | (df_registry2['is_national_exists'] == 0)] 
     df_reduced.set_index('REGISTRY')
     return df_reduced
 
@@ -165,26 +196,24 @@ def turn_cancer_to_per_capita(df_cases, df_pop, df_reg):
     
     df_cases.drop(['N_unk','N85', 'N80_84', 'N75_79','N70_74','N65_69','N60_64','N55_59','N50_54','N0_4','N5_9','N10_14','N15_19'], axis=1, inplace=True)
     df_cases['N20_49'] = df_cases['N20_24'] + df_cases['N25_29'] + df_cases['N30_34'] + df_cases['N35_39'] + df_cases['N40_44'] + df_cases['N45_49']
-    df_case_sum = df_cases.groupby(['REGISTRY']).sum()['N20_49'].reset_index()
+    df_case_sum = df_cases.groupby(['REGISTRY']).agg({'N20_49':sum, 'TOTAL':sum}).reset_index()
 
     df_pop.drop(['P_unk','P85', 'P80_84', 'P75_79','P70_74','P65_69','P60_64','P55_59','P50_54','P0_4','P5_9','P10_14','P15_19'], axis=1, inplace=True)
     df_pop['P20_49'] = df_pop['P20_24'] + df_pop['P25_29'] + df_pop['P30_34'] + df_pop['P35_39'] + df_pop['P40_44'] + df_pop['P45_49']
-    df_pop_sum = df_pop.groupby(['REGISTRY']).sum()['P20_49'].reset_index()
+    df_pop_sum = df_pop.groupby(['REGISTRY']).agg({'P20_49':sum, 'Total_Pop':sum}).reset_index()
 
     df_case_v_pop = df_case_sum.merge(df_pop_sum, left_on='REGISTRY', right_on='REGISTRY', suffixes=('', '_pop'))
 
-    df_case_v_pop_reg = df_case_v_pop.merge(df_reg, left_on='REGISTRY', right_on='REGISTRY', suffixes=('', '_lu'))[['REGISTRY', 'N20_49', 'P20_49', 'country_name']]
-    df_case_v_pop_country = df_case_v_pop_reg.groupby('country_name').agg({'N20_49':sum, 'P20_49':sum}).reset_index()
+    df_case_v_pop_reg = df_case_v_pop.merge(df_reg, left_on='REGISTRY', right_on='REGISTRY', suffixes=('', '_lu'))[['REGISTRY', 'N20_49', 'P20_49', 'TOTAL', 'Total_Pop','country_name']]
+    df_case_v_pop_country = df_case_v_pop_reg.groupby('country_name').agg({'N20_49':sum, 'P20_49':sum, 'TOTAL':sum, 'Total_Pop':sum}).reset_index()
     df_case_v_pop_country.sort_values('country_name')
 
-    df_case_v_pop_country['Incidence Per Age Capita'] = df_case_v_pop_country['N20_49'] / df_case_v_pop_country['P20_49'] * 100
+    df_case_v_pop_country['Incidence Per Age Capita'] = df_case_v_pop_country['N20_49'] / df_case_v_pop_country['P20_49'] * 100  # in percents
 
     return df_case_v_pop_country
 
 def cancer_pc_by_country (df_cancer, df_all_countries):
      # returns cancer per capita joined with the country table, reduced to our set of countries
-
-
     df_cancer_pc_by_country = df_cancer.merge(df_all_countries, how='left', left_on="country_name", right_on='Name', suffixes = ('', 'iso'))
 
     return df_cancer_pc_by_country
@@ -199,4 +228,8 @@ def get_animal_isos(df_animal, df_iso):
 
     df_results = df_animal.merge(df_iso, left_on='country_code', right_on = 'Alpha3')  
     return df_results
+
+def countries_in_common(df_combo):
+    return list(df_combo['Alpha3'])
+
 

@@ -27,7 +27,7 @@ def world_map(df_map, country_code_type, type):
 
     if type == 'animal':
         legendname = 'Animal Product Consumption Kg/Capita/Yr 2008 (age 20-50)'
-        keycolumns=['country_code', 'animal_product_kg_cap_yr']
+        keycolumns=['Alpha3', 'animal_product_kg_cap_yr']
         colorscheme = 'Blues'
     elif type == 'cases':
         legendname = "Cancer Indicents Capita/Yr 2008-2012 (age 20-50)"        
@@ -40,7 +40,7 @@ def world_map(df_map, country_code_type, type):
 
     geojsonsite = 'https://raw.githubusercontent.com/datasets/geo-boundaries-world-110m/master/countries.geojson'
     worldgeo = json.loads(requests.get(geojsonsite).text)
-    m = folium.Map(location=[30, 0], zoom_start=1.5)
+    m = folium.Map(location=[30, 0], zoom_start=1.6)
 
     folium.Choropleth(
         geo_data=worldgeo,
@@ -51,7 +51,8 @@ def world_map(df_map, country_code_type, type):
         fill_color=colorscheme,
         fill_opacity=0.7,
         line_opacity=0.2,
-        legend_name=legendname
+        legend_name=legendname,
+        nan_fill_color='dimgrey'
     ).add_to(m)
 
     folium.LayerControl().add_to(m)
