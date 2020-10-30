@@ -38,7 +38,7 @@ The Our World in Data site provides a chart and downloadable .csv of meat/dairy/
 
     <base bar? chart, top and bottom 5>
 
-    map
+    ![](images/cancer_percapita.png)
 
 ### Animal Consumption Per Capita
 
@@ -46,6 +46,9 @@ The Our World in Data site provides a chart and downloadable .csv of meat/dairy/
 
 ![Animal Consumption](../images/animal_consumption2.png)
 images/animal_consumption.html
+
+![](images/animal_consumption.html)
+
 
 
 ## Let's look at the Correlation
