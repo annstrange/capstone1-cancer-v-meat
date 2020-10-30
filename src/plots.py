@@ -7,6 +7,8 @@ import branca
 import json
 import requests
 
+plt.style.use('ggplot')
+plt.rcParams.update({'font.size': 20})
 
 def world_map(df_map, country_code_type, type):
     '''
@@ -32,8 +34,9 @@ def world_map(df_map, country_code_type, type):
     elif type == 'cases':
         legendname = "Cancer Indicents Capita/Yr 2008-2012 (age 20-50)"        
         keycolumns=['Alpha3', 'Incidence Per Age Capita']
-        colorscheme = 'Reds'
-    else:
+        colorscheme = 'BuPu'
+    else:  
+        # Intent here is a layered look but need to munge the data to create that illusion... todo: 
         legendname = "Correlation between Animal Consumption and Cancer Incidence 2008-2012 (age 20-50)"        
         keycolumns=['Alpha3', 'Incidence Per Age Capita']
         colorscheme = 'Purples'
@@ -58,5 +61,48 @@ def world_map(df_map, country_code_type, type):
     folium.LayerControl().add_to(m)
     return m
 
+def correlation_plot(df_combo):
+    plt.rcParams.update({'font.size': 20})
+    df_ranked = df_combo.sort_values('Incidence Per Age Capita', ascending=False).reset_index()
+    fig, ax = plt.subplots(figsize=(12,5))
 
+    x = np.arange(len(df_ranked['Incidence Per Age Capita']))
+    y1 = df_ranked['Incidence Per Age Capita']
+    y2 = df_ranked['animal_product_kg_cap_yr']
+
+    ax.set_title('Correlation of Measures')
+    ax.plot(x, y1, color='b')
+    ax.set_ylabel('Cancer Incidence p/Capita', color='b')
+    ax.set_xlabel('Country')
+
+    ax2=ax.twinx()
+    ax2.scatter(x, y2, color='dimgrey')
+    ax2.set_ylabel('Animal Product Consumption\n kg p/Capita', color='dimgrey')
+
+    plt.savefig('../images/correlation.png')
+
+
+def correlation_bar(df, title):
+    # Expects a dataframe of either the most or least correlated countries
+    plt.rcParams.update({'font.size': 14})
+    fig, ax  = plt.subplots(figsize=(10,5))
+
+    x = np.arange(len(df['country_name']))
+    y1 = df['Incidence Per Age Capita']
+    y2 = df['animal_product_kg_cap_yr']
+
+
+    ax.bar(x, y1, alpha = .4, color='b')
+    ax.set_xticks(x)
+    ax.set_xticklabels(df['country_name'], rotation=60)
+    ax.set_ylabel('Cancer Incidence\n p/Capita', color='b')
+
+    ax2=ax.twinx()
+    ax2.bar(x, y2, alpha = .6, color = 'dimgrey')
+    ax2.set_ylim ([0,450])
+    ax2.set_ylabel('Animal Consumption\n kg p/Capita', color='dimgrey');
+    ax.set_title('{} Correlated'.format(title))
+
+    fig.tight_layout()
+    plt.savefig('../images/{}_corr.png'.format(title), bbox_inches='tight')
 

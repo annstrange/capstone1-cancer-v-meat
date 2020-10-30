@@ -83,6 +83,21 @@ def std_country_region (country_region_col):
     else:
         return dict.get(country_region_col)
 
+
+def fix_usa_back (country_col):
+    '''
+        country_name = 'United States of America' is needed for joins (a better key would be ideal)
+        but terrible for plots.  This single purpose utensil changes it back to USA
+    '''
+    dict = { 
+        'United States of America':'USA',
+    }
+    if (dict.get(country_col) == None):
+        return country_col
+    else:
+        return dict.get(country_col)
+
+
 def get_country_star(country_col):
     '''
     country_col is a Series/column which we'll treat as an iterable

@@ -39,6 +39,16 @@ def combine_data(df_cancer_data, df_animal_cons):
 
     return df_combo2
 
+def plotting(df_combo):
+    #Correlation plots
+    df_combo['corr_diff'] = df_combo['animal_product_kg_cap_yr'] - df_combo['Incidence Per Age Capita']
+    correlation_plot(df_combo)
+    df_bar = df_combo.sort_values('corr_diff', ascending=False).iloc[:10, :]
+    df_bar2 = df_combo.sort_values('corr_diff', ascending=True).iloc[:10, :]
+    correlation_bar(df_bar, 'Most')
+    correlation_bar(df_bar2, "Least")
+
+
 
 if __name__ == '__main__':
     '''
@@ -95,6 +105,9 @@ if __name__ == '__main__':
 
     # reduce to countries in common
     df_combo = combine_data(df_cancer_by_iso, df_animal_by_iso)
+
+    # set back to USA
+    df_combo['country_name'] = list(map(fix_usa_back, df_combo['country_name']))
     dump_df('../data/combo.csv', df_combo)    
 
     country_list = countries_in_common(df_combo)
@@ -102,6 +115,7 @@ if __name__ == '__main__':
 
     #reduce both datasets to countries in common for mapping
 
+    print("\nPlotting")
     # World Map, Animal product consumption
     #m = world_map(df_animal_cons, 'alpha3', 'animal')
     m = world_map(df_combo, 'alpha3', 'animal')
@@ -111,11 +125,13 @@ if __name__ == '__main__':
     m_c = world_map(df_cancer_by_iso, 'alpha3', 'cases')
     m_c.save('../images/cancer_percapita.html')
 
-
+    # Correlation Plots
+    plotting(df_combo)
+    
 
     '''
     Todo: implement plotting
-    print("\nPlotting")
+
     fname = 'm1_plot.png'
     ax = plot_computation_time(n_lst, comp_times_m1, title='method 1, double for',
                                label='m1: double for', color='blue', fname=fname,
