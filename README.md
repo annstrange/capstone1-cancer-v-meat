@@ -25,7 +25,7 @@ The Our World in Data site provides a chart and downloadable .csv of meat/dairy/
 2. Some countries do not tend to report cancer statistics as thoroughly as other countries.  Countries without screening may detect cancer later.
 3. Only 60 countries were compared in this analysis where adequate data existed for both cancer stats and animal product consumption. 
 4. Age is a big cancer stats confounder as the probability of getting cancer increases exponentially as people age, and the WHO strongly recommends using an Age Adjusted average for any country to country comparisons.  Instead I limited the sample to young people, between age 20 and 49.
-6. To compare animal product consuming populations with non-animal consuming populations using the Two Sample Approximate Test of Population Proportions, there is an assumption required on the independence of each "Binomial trial" i.e. each incidence of cancer is independent of the others, and this is likely to not hold true.  It would be interesting to conduct this test exluding regions such as Chernobyl and Hiroshima, or exclude types of cancer with known causes such as smoking where external and regional factors are certainly contributing to cancer rates.
+6. To compare animal product consuming populations with non-animal consuming populations using the Two Sample Approximate Test of Population Proportions, there is an assumption required on the independence of each "Binomial trial" i.e. each incidence of cancer is independent of the others, and this is likely to not hold true.  It would be interesting to conduct this test excluding regions such as Chernobyl and Hiroshima, or exclude types of cancer with known causes such as smoking where external and regional factors are certainly contributing to cancer rates.
 7. To represent the lowest animal product consumption, I've selected the lowest 10 countries in our set (1/6 our sample) with lower than 115 kg/capita which we'll use to represent "low" consumption.  If the average person consumes 2 kg/food and water per day, and we account for some waste**, this would come out to < 10% daily animal product consumption. For "high" consumption countries, the ratio would be closer to 25-30% of diets. 
 
      **[wasted food report](https://en.reset.org/knowledge/global-food-waste-and-its-environmental-impact-09122018) 
@@ -71,10 +71,10 @@ Our Null Hypothesis is that the chance of getting cancer in a low meat/dairy cou
 
 ![](images/NullHypothesis.png)
 
-I usesd the * Two Sample Approximate Test of Population Proportions to analyze this *. 
+I used the * Two Sample Approximate Test of Population Proportions to analyze this *. 
 
 
-#### Probablistic Model of the Situation Assuming the Null Hypothesis is True Using Frequencies and Two Samples
+#### Probabilistic Model of the Situation Assuming the Null Hypothesis is True Using Frequencies and Two Samples
 
 Assuming that each cancer incidence is independent of all the rest (not actually true), the number of cancer incidents per year for age 20-49 are Binomially distributed. 
 
@@ -82,7 +82,7 @@ Our sample populations are:
 Population in animal eating countries age 20-49: approx 324 million 
 Population in vegan countries age 20-49: approx 77 million
 
-We'll use frequency in the test so we can account for the population differences.  Our hypothesis test and probablistic model for the difference in sample frequencies can be represented as 
+We'll use frequency in the test so we can account for the population differences.  Our hypothesis test and probabilistic model for the difference in sample frequencies can be represented as 
 
 
 ![](images/HypothesisTestLaTex.png)
